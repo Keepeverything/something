@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+import re 
+f = input("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°:")
+ret = re.search('.sp',f)
+x = 0
+names = []
+if ret:
+	h = open(f, 'r')
+	for line in h:
+		if (re.match('.subckt', line)):
+			x = 1
+		if (re.match('.ends', line)):	
+			x = 0
+		if x == 0 and (re.search('x(\w+)', line)):
+			if re.search('l=(\d)u', line):
+				name = re.match('x(\w+)', line)
+				names.append(name.group(0))
+				print(name.group(0)) 	
+	h.close()
+	if names==[]:
+		print("РџРѕРґС…РѕРґСЏС‰РёС… С‚СЂР°РЅР·РёСЃС‚РѕСЂРѕРІ РЅРµС‚")
+else:
+	print("Ne hspice file")	
