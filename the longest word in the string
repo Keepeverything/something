@@ -3,19 +3,18 @@
 
 using namespace std;
 int main() {
-    string s,d="",g="",h="";
+    string s,d="",g="",max="";
     getline(cin, s);
         for (auto c : s) {
             d.append(1,c);
             if (c==' '){
-                a=0;
                 g=d;
                 d="";
             }
-            if(d.size()>g.size()&&h.size()<d.size()){
-                h=d;
+            if(d.size()>g.size()&&max.size()<d.size()){
+                max=d;
             }
          }       
-       cout << h; 
+       cout << max; 
   return 0;
 }
